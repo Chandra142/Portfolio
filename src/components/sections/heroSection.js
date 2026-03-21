@@ -1,4 +1,4 @@
-﻿function renderCta({ href, label, variant, external = false }) {
+function renderCta({ href, label, variant, external = false }) {
   const className = variant === "glow" ? "btn-glow" : "btn-ghost";
   const target = external ? ' target="_blank" rel="noreferrer"' : "";
   return `<a href="${href}" class="${className}"${target}>${label}</a>`;
@@ -26,9 +26,9 @@ export function renderHeroSection(hero) {
           <div class="photo-orb photo-orb-1" aria-hidden="true"></div>
           <div class="photo-orb photo-orb-2" aria-hidden="true"></div>
           <div class="photo-wrap">
-            <img id="photo-dark" src="/public/assets/profile-pic-dark.png" alt="${hero.name}"
+            <img id="photo-dark" src="/assets/profile-pic-dark.png" alt="${hero.name}"
               onerror="this.style.display='none';document.getElementById('ph-fb').style.display='flex'" />
-            <img id="photo-light" src="/public/assets/profile-pic-light.png" alt="${hero.name}" style="display:none"
+            <img id="photo-light" src="/assets/profile-pic-light.png" alt="${hero.name}" style="display:none"
               onerror="this.style.display='none';document.getElementById('ph-fb').style.display='flex'" />
             <div class="photo-placeholder" id="ph-fb">
               <div class="ph-av">RC</div>

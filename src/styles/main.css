@@ -49,6 +49,7 @@ body {
   color: var(--text);
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
+  width: 100%;
   transition: background .4s, color .4s;
 }
 

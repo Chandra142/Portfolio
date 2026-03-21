@@ -26,7 +26,14 @@ function resolveRequestPath(urlPath) {
   }
 
   const relativePath = urlPath.replace(/^\/+/, "");
-  return path.join(rootDirectory, relativePath);
+  const directPath = path.join(rootDirectory, relativePath);
+  
+  if (fs.existsSync(directPath) && fs.statSync(directPath).isFile()) {
+    return directPath;
+  }
+
+  const publicPath = path.join(rootDirectory, "public", relativePath);
+  return publicPath;
 }
 
 http

@@ -1,4 +1,4 @@
-﻿export const portfolioData = {
+export const portfolioData = {
   hero: {
     name: "Ram Chandra Gupta",
     role: "AI/ML Engineer",
@@ -8,7 +8,7 @@
       "I build production-oriented AI applications across retrieval, computer vision, and full-stack ML systems.",
     ctas: [
       { href: "#projects", label: "Projects", variant: "glow" },
-      { href: "/public/documents/ram-chandra-gupta-resume.pdf", label: "Get Resume", variant: "ghost", external: true },
+      { href: "/documents/ram-chandra-gupta-resume.pdf", label: "Get Resume", variant: "ghost", external: true },
       { href: "#contact", label: "Contact", variant: "ghost" }
     ],
     codeTitle: "Portfolio.ts",
