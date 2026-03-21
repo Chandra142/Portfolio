@@ -1,0 +1,10 @@
+{
+  "name": "ram-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Modular static portfolio for Ram Chandra Gupta.",
+  "scripts": {
+    "start": "node serve-local.js",
+    "test": "node tests/smokeCheck.js"
+  }
+}
