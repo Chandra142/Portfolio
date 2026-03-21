@@ -5,7 +5,7 @@ const path = require("path");
 const host = "127.0.0.1";
 const port = 8000;
 const rootDirectory = __dirname;
-const defaultDocument = path.join(rootDirectory, "index.html");
+const defaultDocument = path.join(rootDirectory, "public", "index.html");
 
 const mimeTypes = {
   ".css": "text/css; charset=utf-8",
