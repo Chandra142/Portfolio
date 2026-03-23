@@ -1,68 +1,124 @@
-# Ram Portfolio
+# 🚀 Ram Chandra Gupta — Portfolio
 
-A modular, production-style static portfolio for Ram Chandra Gupta. The project has been reorganized into a clean source/public structure so presentation, configuration, assets, and runtime logic are easier to maintain.
+<p align="center">
+  🌐 <a href="https://mrchandra.in"><b>Visit Live Portfolio</b></a>
+</p>
 
-## Project Structure
+<p align="center">
+  <img src="https://img.shields.io/badge/Live-mrchandra.in-blue?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Status-Active-success?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Made%20With-JS%20%7C%20HTML%20%7C%20CSS-orange?style=for-the-badge"/>
+</p>
 
-```text
+---
+
+## 👨‍💻 About Me
+
+Hi, I'm **Ram Chandra Gupta** 👋
+A passionate developer focused on:
+
+* 🤖 Machine Learning
+* 🌐 Web Development
+* ⚙️ Software Engineering
+
+This portfolio represents my work, skills, and projects in a clean and interactive format.
+
+---
+
+## 🌟 Features
+
+✨ Modern & responsive UI
+⚡ Smooth animations (GSAP)
+📱 Mobile-friendly design
+🎯 Modular architecture
+📄 Resume & project showcase
+📬 Contact integration
+
+---
+
+## 🛠️ Tech Stack
+
+| Category        | Technologies            |
+| --------------- | ----------------------- |
+| Frontend        | HTML5, CSS3, JavaScript |
+| Animations      | GSAP                    |
+| Hosting         | Netlify                 |
+| Version Control | Git & GitHub            |
+
+---
+
+## 📁 Project Structure
+
+```
 .
-|-- public/
-|   |-- assets/
-|   |-- documents/
-|   `-- index.html
-|-- src/
-|   |-- components/
-|   |   `-- sections/
-|   |-- config/
-|   |-- scripts/
-|   |   `-- modules/
-|   |-- services/
-|   |-- styles/
-|   `-- utils/
-|-- tests/
-|-- package.json
-|-- README.md
-`-- serve-local.js
+├── index.html
+├── assets/
+├── documents/
+├── src/
+│   ├── components/
+│   ├── scripts/
+│   ├── styles/
+│   └── utils/
+├── tests/
+├── package.json
+└── serve-local.js
 ```
 
-## Folder Guide
+---
 
-- `public/`: Browser-served entrypoint, downloadable documents, and static assets.
-- `src/components/sections/`: HTML partials for each portfolio section.
-- `src/config/`: Centralized content/configuration such as section registration and typed-text values.
-- `src/scripts/modules/`: UI behavior modules split by concern.
-- `src/services/`: Runtime services such as section loading.
-- `src/styles/`: Main stylesheet.
-- `src/utils/`: Shared DOM helpers.
-- `tests/`: Lightweight smoke checks for structure and bootstrap integrity.
+## 🚀 Getting Started
 
-## How to Run
-
-1. Install nothing. This project has no external runtime dependencies.
-2. Start the local server:
+### Clone the repository
 
 ```bash
-npm start
+git clone https://github.com/Chandra142/Portfolio.git
+cd Portfolio
 ```
 
-3. Open `http://127.0.0.1:8000`.
-
-## How to Test
+### Run locally
 
 ```bash
-npm test
+node serve-local.js
 ```
 
-## Key Features
+👉 Open in browser:
+`http://127.0.0.1:8000`
 
-- Modular section-based portfolio architecture.
-- Dedicated source and public layers.
-- Theme toggle, animated hero canvas, typed title, and section reveal effects.
-- Scroll-aware navigation and mobile navigation support.
-- Contact form mailto workflow.
-- Clean asset and document naming for easier maintenance.
+---
 
-## Notes
+## 🌍 Deployment
 
-- The site is intentionally framework-free and optimized for simple static hosting.
-- `serve-local.js` serves the repository root and uses `public/index.html` as the default route.
+Deployed on **Netlify** with custom domain:
+
+👉 **https://mrchandra.in**
+
+---
+
+## 📬 Connect With Me
+
+<p align="center">
+  <a href="mailto:ramcgupta.ml@gmail.com">📧 Email</a> •
+  <a href="https://www.linkedin.com/in/chandra142/">🔗 LinkedIn</a> •
+  <a href="https://github.com/Chandra142">💻 GitHub</a>
+</p>
+
+---
+
+## 📈 Future Improvements
+
+* 🌙 Dark/Light Mode
+* 🧠 Blog Section
+* 📊 Analytics Integration
+* 🔍 SEO Optimization
+
+---
+
+## ⭐ Support
+
+If you like this project, give it a ⭐ and connect with me!
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**
