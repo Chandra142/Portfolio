@@ -1,124 +1,91 @@
-# 🚀 Ram Chandra Gupta — Portfolio
+# Ram Chandra Gupta — Portfolio
 
-<p align="center">
-  🌐 <a href="https://mrchandra.in"><b>Visit Live Portfolio</b></a>
-</p>
+Applied AI/ML portfolio focused on LLM evaluation, retrieval-augmented generation, agentic systems, computer vision, and practical backend engineering.
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Live-mrchandra.in-blue?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Status-Active-success?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Made%20With-JS%20%7C%20HTML%20%7C%20CSS-orange?style=for-the-badge"/>
-</p>
+**Live site:** [mrchandra.in](https://mrchandra.in)
 
----
+## Features
 
-## 👨‍💻 About Me
+- Responsive single-page layout with mobile navigation
+- Dark and light themes saved between visits
+- Animated neural-network canvas and profile-card effects
+- Reduced-motion support and keyboard-accessible controls
+- Project, experience, achievement, and certificate showcases
+- Resume downloads and certificate proof links
+- Contact form that opens a pre-filled message in the visitor's email app
+- Dependency-free browser JavaScript, HTML, and CSS
 
-Hi, I'm **Ram Chandra Gupta** 👋
-A passionate developer focused on:
+The contact form does not send or store messages on a server. Visitors must review and send the prepared message in their email application.
 
-* 🤖 Machine Learning
-* 🌐 Web Development
-* ⚙️ Software Engineering
+## Run locally
 
-This portfolio represents my work, skills, and projects in a clean and interactive format.
+Requires Node.js 18 or newer. No dependency installation is needed.
 
----
-
-## 🌟 Features
-
-✨ Modern & responsive UI
-⚡ Smooth animations (GSAP)
-📱 Mobile-friendly design
-🎯 Modular architecture
-📄 Resume & project showcase
-📬 Contact integration
-
----
-
-## 🛠️ Tech Stack
-
-| Category        | Technologies            |
-| --------------- | ----------------------- |
-| Frontend        | HTML5, CSS3, JavaScript |
-| Animations      | GSAP                    |
-| Hosting         | Netlify                 |
-| Version Control | Git & GitHub            |
-
----
-
-## 📁 Project Structure
-
+```bash
+npm start
 ```
+
+Open `http://127.0.0.1:8000`.
+
+## Test
+
+```bash
+npm test
+```
+
+The smoke check verifies required files, section content, and local project/certificate links.
+
+For desktop/mobile browser checks, install Chrome or Edge and use Node.js 22 or newer:
+
+```bash
+npm run test:browser
+```
+
+The browser check starts an isolated local server and verifies content, responsive layout, themes, reduced motion, JavaScript errors, and PDF delivery. Set `CHROME_PATH` if your browser is not in a standard installation location.
+
+## Update the resume CV
+
+Edit `documents/ram-chandra-gupta-resume.html`, then regenerate the downloadable, one-page PDF with:
+
+```bash
+npm run resume:pdf
+```
+
+PDF generation uses a locally installed Chrome or Edge browser and requires no extra npm packages.
+
+## Project structure
+
+```text
 .
 ├── index.html
-├── assets/
-├── documents/
+├── assets/                 # Images and certificate image
+├── documents/              # PDF/HTML resume and certificate proofs
+├── scripts/exportResume.js # Local resume PDF generation
 ├── src/
 │   ├── components/
+│   │   ├── sections/       # Renderers for each portfolio section
+│   │   └── footer.js
+│   ├── config/             # UI constants and rotating titles
+│   ├── data/               # Portfolio content
 │   ├── scripts/
-│   ├── styles/
-│   └── utils/
-├── tests/
-├── package.json
-└── serve-local.js
+│   │   ├── modules/        # Navigation, themes, forms, and animations
+│   │   └── app.js          # Application bootstrap
+│   ├── styles/main.css
+│   └── utils/dom.js
+├── tests/smokeCheck.js
+├── serve-local.js
+└── vercel.json
 ```
 
----
+## Customize
 
-## 🚀 Getting Started
+Edit `src/data/portfolioData.js` to update projects, work experience, achievements, research focus, and contact details. Edit `src/config/siteConfig.js` for rotating hero titles and theme icons.
 
-### Clone the repository
+`vercel.json` configures static hosting on Vercel without SPA rewrites. The site uses same-page section links, so assets and missing URLs are not rewritten to `index.html`.
 
-```bash
-git clone https://github.com/Chandra142/Portfolio.git
-cd Portfolio
-```
+## Connect
 
-### Run locally
-
-```bash
-node serve-local.js
-```
-
-👉 Open in browser:
-`http://127.0.0.1:8000`
-
----
-
-## 🌍 Deployment
-
-Deployed on **Netlify** with custom domain:
-
-👉 **https://mrchandra.in**
-
----
-
-## 📬 Connect With Me
-
-<p align="center">
-  <a href="mailto:ramcgupta.ml@gmail.com">📧 Email</a> •
-  <a href="https://www.linkedin.com/in/chandra142/">🔗 LinkedIn</a> •
-  <a href="https://github.com/Chandra142">💻 GitHub</a>
-</p>
-
----
-
-## 📈 Future Improvements
-
-* 🌙 Dark/Light Mode
-* 🧠 Blog Section
-* 📊 Analytics Integration
-* 🔍 SEO Optimization
-
----
-
-## ⭐ Support
-
-If you like this project, give it a ⭐ and connect with me!
-
----
-
-## 📄 License
-
-This project is licensed under the **MIT License**
+- [Email](mailto:ramcgupta.ml@gmail.com)
+- [LinkedIn](https://www.linkedin.com/in/chandra142/)
+- [GitHub](https://github.com/Chandra142)
+- [Kaggle](https://www.kaggle.com/ramchandra142/)

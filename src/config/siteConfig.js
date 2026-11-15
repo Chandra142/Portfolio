@@ -4,9 +4,8 @@ export const themeIcons = {
 };
 
 export const typedWords = [
-  "Applied ML Engineer",
-  "LLM Systems Builder",
-  "Computer Vision Engineer",
-  "Research-to-Product Developer",
-  "Evaluation-Driven Problem Solver",
+  "Applied AI/ML Engineer",
+  "LLM Evaluation Engineer",
+  "RAG Systems Developer",
+  "ML Software Developer",
 ];

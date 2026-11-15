@@ -1,51 +1,77 @@
 import { themeIcons } from "../../config/siteConfig.js";
 import { qs } from "../../utils/dom.js";
 
+const themeStorageKey = "portfolio-theme";
+
 function isDarkTheme() {
-  return document.documentElement.getAttribute("data-theme") === "dark";
+  return document.documentElement.getAttribute("data-theme") !== "light";
 }
 
-function updateThemeAssets(isDarkMode) {
-  const knob = qs("#themeKnob");
-  const darkPhoto = qs("#photo-dark");
-  const lightPhoto = qs("#photo-light");
-  const darkLogo = qs("#logo-dark");
-  const lightLogo = qs("#logo-light");
-
-  if (knob) {
-    knob.textContent = isDarkMode ? themeIcons.dark : themeIcons.light;
+function getInitialTheme() {
+  try {
+    const storedTheme = window.localStorage.getItem(themeStorageKey);
+    if (storedTheme === "light" || storedTheme === "dark") {
+      return storedTheme;
+    }
+  } catch {
+    // Storage can be unavailable in private or restricted browsing contexts.
   }
-
-  if (darkPhoto) {
-    darkPhoto.style.display = isDarkMode ? "block" : "none";
-  }
-
-  if (lightPhoto) {
-    lightPhoto.style.display = isDarkMode ? "none" : "block";
-  }
-
-  if (darkLogo) {
-    darkLogo.style.display = isDarkMode ? "block" : "none";
-  }
-
-  if (lightLogo) {
-    lightLogo.style.display = isDarkMode ? "none" : "block";
-  }
+  return window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
 }
 
 export function initThemeToggle() {
   const themeButton = qs("#themeBtn");
+  const profilePhoto = qs("#profile-photo");
+  const photoPlaceholder = qs("#ph-fb");
 
-  updateThemeAssets(isDarkTheme());
+  function applyTheme(theme) {
+    const dark = theme === "dark";
+    document.documentElement.setAttribute("data-theme", theme);
+    themeButton?.style.setProperty("color-scheme", theme);
 
-  if (!themeButton) {
-    return;
+    const knob = qs("#themeKnob");
+    if (knob) {
+      knob.textContent = dark ? themeIcons.dark : themeIcons.light;
+    }
+
+    if (profilePhoto) {
+      const source = dark ? profilePhoto.dataset.darkSrc : profilePhoto.dataset.lightSrc;
+      if (source && profilePhoto.getAttribute("src") !== source) {
+        profilePhoto.src = source;
+      }
+    }
+
+    if (themeButton) {
+      const label = `Switch to ${dark ? "light" : "dark"} theme`;
+      themeButton.setAttribute("aria-label", label);
+      themeButton.setAttribute("title", label);
+    }
   }
 
-  themeButton.addEventListener("click", () => {
-    const html = document.documentElement;
+  if (profilePhoto && photoPlaceholder) {
+    profilePhoto.addEventListener("load", () => {
+      profilePhoto.style.display = "block";
+      photoPlaceholder.hidden = true;
+    });
+    profilePhoto.addEventListener("error", () => {
+      profilePhoto.style.display = "none";
+      photoPlaceholder.hidden = false;
+    });
+    if (profilePhoto.complete && profilePhoto.naturalWidth === 0) {
+      profilePhoto.style.display = "none";
+      photoPlaceholder.hidden = false;
+    }
+  }
+
+  applyTheme(getInitialTheme());
+
+  themeButton?.addEventListener("click", () => {
     const nextTheme = isDarkTheme() ? "light" : "dark";
-    html.setAttribute("data-theme", nextTheme);
-    updateThemeAssets(nextTheme === "dark");
+    applyTheme(nextTheme);
+    try {
+      window.localStorage.setItem(themeStorageKey, nextTheme);
+    } catch {
+      // The selected theme still applies when storage is unavailable.
+    }
   });
 }

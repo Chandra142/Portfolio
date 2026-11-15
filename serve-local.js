@@ -1,10 +1,11 @@
-const http = require("http");
-const fs = require("fs");
-const path = require("path");
+import fs from "node:fs";
+import http from "node:http";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 const host = "127.0.0.1";
-const port = 8000;
-const rootDirectory = __dirname;
+const port = Number.parseInt(process.env.PORT || "8000", 10);
+const rootDirectory = fileURLToPath(new URL(".", import.meta.url));
 const defaultDocument = path.join(rootDirectory, "index.html");
 
 const mimeTypes = {
@@ -13,7 +14,7 @@ const mimeTypes = {
   ".ico": "image/x-icon",
   ".jpeg": "image/jpeg",
   ".jpg": "image/jpeg",
-  ".js": "application/javascript; charset=utf-8",
+  ".js": "text/javascript; charset=utf-8",
   ".json": "application/json; charset=utf-8",
   ".pdf": "application/pdf",
   ".png": "image/png",
@@ -24,42 +25,50 @@ function resolveRequestPath(urlPath) {
   if (urlPath === "/") {
     return defaultDocument;
   }
-
-  const relativePath = urlPath.replace(/^\/+/, "");
-  const directPath = path.join(rootDirectory, relativePath);
-  
-  if (fs.existsSync(directPath) && fs.statSync(directPath).isFile()) {
-    return directPath;
+  const directPath = path.resolve(rootDirectory, urlPath.replace(/^[/\\]+/, ""));
+  const relativePath = path.relative(rootDirectory, directPath);
+  if (relativePath.startsWith(`..${path.sep}`) || relativePath === ".." || path.isAbsolute(relativePath)) {
+    return null;
   }
-
-  const publicPath = path.join(rootDirectory, "public", relativePath);
-  return publicPath;
+  return directPath;
 }
 
-http
-  .createServer((request, response) => {
-    const urlPath = decodeURIComponent((request.url || "/").split("?")[0]);
-    const filePath = resolveRequestPath(urlPath);
+const server = http.createServer((request, response) => {
+  if (request.method !== "GET" && request.method !== "HEAD") {
+    response.writeHead(405, { Allow: "GET, HEAD" });
+    response.end("Method not allowed");
+    return;
+  }
 
-    if (!filePath.startsWith(rootDirectory)) {
-      response.writeHead(403);
-      response.end("Forbidden");
+  let filePath;
+  try {
+    filePath = resolveRequestPath(decodeURIComponent((request.url || "/").split("?")[0]));
+  } catch {
+    response.writeHead(400);
+    response.end("Invalid URL");
+    return;
+  }
+  if (!filePath) {
+    response.writeHead(403);
+    response.end("Forbidden");
+    return;
+  }
+
+  fs.readFile(filePath, (error, data) => {
+    if (error) {
+      response.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" });
+      response.end("Not found");
       return;
     }
-
-    fs.readFile(filePath, (error, data) => {
-      if (error) {
-        response.writeHead(404);
-        response.end("Not found");
-        return;
-      }
-
-      const extension = path.extname(filePath).toLowerCase();
-      const contentType = mimeTypes[extension] || "application/octet-stream";
-      response.writeHead(200, { "Content-Type": contentType });
-      response.end(data);
+    const extension = path.extname(filePath).toLowerCase();
+    response.writeHead(200, {
+      "Content-Type": mimeTypes[extension] || "application/octet-stream",
+      "Content-Length": data.length,
+      "X-Content-Type-Options": "nosniff",
     });
-  })
-  .listen(port, host, () => {
-    console.log(`Serving portfolio from ${defaultDocument} at http://${host}:${port}`);
+    response.end(request.method === "HEAD" ? undefined : data);
   });
+});
+server.listen(port, host, () => {
+  console.log(`Serving portfolio at http://${host}:${server.address().port}`);
+});
