@@ -4,63 +4,79 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ram Chandra Gupta | AI/ML Engineer</title>
+  <title>Ram Chandra Gupta | Applied AI/ML Engineer</title>
   <meta name="description"
-    content="AI/ML engineer portfolio focused on retrieval systems, computer vision, and practical full-stack intelligent applications." />
+    content="Applied AI/ML engineer specializing in LLM evaluation, RAG, agentic systems, computer vision, and practical backend engineering." />
   <meta name="author" content="Ram Chandra Gupta" />
+  <meta name="theme-color" content="#081218" />
+  <link rel="canonical" href="https://mrchandra.in/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Ram Chandra Gupta | Applied AI/ML Engineer" />
+  <meta property="og:description" content="LLM evaluation, RAG, agentic systems, and measured machine-learning projects by Ram Chandra Gupta." />
+  <meta property="og:url" content="https://mrchandra.in/" />
+  <meta property="og:image" content="https://mrchandra.in/assets/profile-pic-dark.png" />
+  <meta property="og:image:alt" content="Portrait of Ram Chandra Gupta" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet" />
   <link rel="icon" type="image/png" href="/assets/rc%20logo%20dark%20w-o%20bg.png" />
   <link rel="apple-touch-icon" href="/assets/rc%20logo%20dark%20w-o%20bg.png" />
   <link rel="stylesheet" href="/src/styles/main.css" />
+  <script>
+    try {
+      const savedTheme = localStorage.getItem("portfolio-theme");
+      if (savedTheme === "light" || savedTheme === "dark") {
+        document.documentElement.dataset.theme = savedTheme;
+      }
+    } catch {
+      // The default dark theme remains available when storage is unavailable.
+    }
+  </script>
 </head>
 
 <body>
-  <div class="mob-nav" id="mobNav">
+  <div class="mob-nav" id="mobNav" role="navigation" aria-label="Mobile navigation" aria-hidden="true" inert>
     <a href="#about">About</a>
     <a href="#experience">Experience</a>
-    <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
     <a href="#achievements">Achievements</a>
     <a href="#certifications">Certificates</a>
     <a href="#contact">Contact</a>
   </div>
 
-  <button id="scrollTop" title="Back to top">Top</button>
+  <button id="scrollTop" type="button" title="Back to top" aria-label="Back to top">Top</button>
 
-  <nav>
+  <nav aria-label="Main navigation">
     <a href="#hero" class="logo logo-mark" aria-label="Ram Chandra Gupta home">
-      <img id="logo-dark" src="/assets/rc%20logo%20dark%20w-o%20bg.png" alt="RC logo" />
-      <img id="logo-light" src="/assets/rc%20logo%20dark%20w-o%20bg.png" alt="RC logo" style="display:none" />
+      <img id="site-logo" src="/assets/rc%20logo%20dark%20w-o%20bg.png" alt="" />
     </a>
     <div class="nav-links">
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
-      <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
       <a href="#achievements">Achievements</a>
       <a href="#certifications">Certificates</a>
       <a href="#contact">Contact</a>
     </div>
     <div class="nav-right">
-      <button class="theme-btn" id="themeBtn" title="Toggle theme">
-        <div class="knob" id="themeKnob"></div>
+      <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch to light theme">
+        <span class="knob" id="themeKnob" aria-hidden="true"></span>
       </button>
-      <a
-        href="mailto:ramcgupta.ml@gmail.com?subject=Portfolio%20Inquiry"
-        class="nav-cta"
-        id="navEmailCta"
-        aria-label="Email Ram Chandra Gupta"
-      >Email</a>
-      <button class="ham-btn" id="hamBtn" title="Menu" aria-label="Open menu">
+      <a href="mailto:ramcgupta.ml@gmail.com?subject=Portfolio%20Inquiry" class="nav-cta" id="navEmailCta"
+        aria-label="Email Ram Chandra Gupta" title="Email Ram Chandra Gupta and copy the address">Email</a>
+      <button class="ham-btn" id="hamBtn" type="button" aria-label="Open navigation menu" aria-controls="mobNav"
+        aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
   <main id="app"></main>
-
   <footer class="site-footer"></footer>
 
   <script type="module" src="/src/scripts/app.js"></script>

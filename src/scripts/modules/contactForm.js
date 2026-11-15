@@ -1,40 +1,27 @@
 import { qs } from "../../utils/dom.js";
 
 export function initContactForm() {
-  const sendButton = qs("#sendBtn");
-
-  if (!sendButton) {
+  const form = qs(".form");
+  if (!form) {
     return;
   }
 
-  sendButton.addEventListener("click", () => {
-    const form = sendButton.closest(".form");
-    const name = form.querySelector('input[type="text"]').value.trim();
-    const email = form.querySelector('input[type="email"]').value.trim();
-    const message = form.querySelector("textarea").value.trim();
-
-    if (!name || !email || !message) {
-      sendButton.textContent = "Fill all fields first";
-      sendButton.style.background = "linear-gradient(135deg, #ef4444, #f97316)";
-
-      setTimeout(() => {
-        sendButton.textContent = "Send Message ->";
-        sendButton.style.background = "";
-      }, 2500);
-
+  form.addEventListener("submit", event => {
+    event.preventDefault();
+    if (!form.reportValidity()) {
       return;
     }
 
+    const formData = new FormData(form);
+    const name = formData.get("name").trim();
+    const email = formData.get("email").trim();
+    const message = formData.get("message").trim();
+    const recipient = form.getAttribute("action").replace(/^mailto:/, "");
     const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
     const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
+    const status = qs("#contact-form-status", form);
 
-    window.location.href = `mailto:ramcgupta.ml@gmail.com?subject=${subject}&body=${body}`;
-    sendButton.textContent = "Opening email client...";
-    sendButton.style.background = "linear-gradient(135deg, #10b981, #06b6d4)";
-
-    setTimeout(() => {
-      sendButton.textContent = "Send Message ->";
-      sendButton.style.background = "";
-    }, 3500);
+    status.textContent = "Opening your email app. Review and send the message there.";
+    window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
   });
 }

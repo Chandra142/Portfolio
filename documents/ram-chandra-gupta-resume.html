@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ram Chandra Gupta — Applied AI/ML Engineer Resume</title>
+  <style>
+    @page { size: A4; margin: 11mm 13mm; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #e9edef; color: #17242d; font-family: Arial, Helvetica, sans-serif; font-size: 9pt; }
+    .resume { width: 210mm; margin: 20px auto; padding: 13mm 15mm; background: #fff; }
+    header { border-bottom: 2px solid #0f766e; padding-bottom: 8px; }
+    h1 { margin: 0 0 3px; color: #0c343c; font-size: 25pt; line-height: 1.1; letter-spacing: -0.4px; }
+    .headline { margin: 0 0 6px; color: #0f766e; font-size: 11pt; font-weight: 700; }
+    .contact { color: #3b4c56; font-size: 8.3pt; line-height: 1.6; }
+    a { color: #0f6771; text-decoration: none; }
+    .contact a { margin-right: 8px; }
+    section { margin-top: 9px; }
+    h2 { margin: 0 0 5px; padding-bottom: 3px; border-bottom: 1px solid #a9c7c8; color: #0f766e; font-size: 10pt; text-transform: uppercase; letter-spacing: 1px; break-after: avoid; }
+    .summary { margin: 0; font-size: 9pt; line-height: 1.45; }
+    .entry { margin: 0 0 7px; break-inside: avoid; }
+    .entry-header { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+    h3 { margin: 0; color: #162f3b; font-size: 9.6pt; line-height: 1.3; }
+    .period { flex: 0 0 auto; color: #0f766e; font-size: 8.2pt; font-weight: 700; white-space: nowrap; }
+    .subtitle { margin: 1px 0 2px; color: #3c5965; font-size: 8.7pt; font-style: italic; }
+    .stack { margin: 2px 0 0; color: #3b4c56; font-size: 8.1pt; line-height: 1.4; }
+    ul { margin: 3px 0 0; padding-left: 15px; }
+    li { margin: 0 0 2px; padding-left: 1px; line-height: 1.37; }
+    .project-list { display: grid; gap: 5px; }
+    .project-list .entry { margin: 0; }
+    .project-list ul { margin-top: 2px; }
+    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5px 18px; }
+    .skill-group { break-inside: avoid; font-size: 8.5pt; line-height: 1.4; }
+    .skill-group strong { display: block; color: #162f3b; }
+    .education-grid { display: grid; gap: 8px; }
+    .education-grid .entry { margin: 0; }
+    .compact-list { columns: 2; column-gap: 28px; margin-top: 1px; }
+    .compact-list li { break-inside: avoid; }
+    strong { color: #122c37; }
+    @media print {
+      body { background: #fff; font-size: 8.4pt; }
+      .resume { width: auto; margin: 0; padding: 0; }
+      header { padding-bottom: 5px; }
+      h1 { font-size: 23pt; }
+      .headline { font-size: 10.5pt; }
+      .contact { font-size: 8pt; }
+      .summary { font-size: 8.4pt; line-height: 1.4; }
+      section { margin-top: 5px; }
+      h2 { margin-bottom: 3px; padding-bottom: 2px; font-size: 9.5pt; }
+      .entry { margin-bottom: 4px; }
+      .project-list { gap: 3px; }
+      ul { margin-top: 2px; }
+      li { margin-bottom: 1px; line-height: 1.25; }
+      .stack { font-size: 7.8pt; line-height: 1.3; }
+      .skills-grid { gap: 3px 16px; }
+      .skill-group { font-size: 8.1pt; line-height: 1.3; }
+      .education-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+      .compact-list { column-gap: 22px; }
+      a { color: #0f6771; }
+    }
+    @media screen and (max-width: 760px) {
+      .resume { width: auto; margin: 0; padding: 24px; }
+      .skills-grid, .education-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="resume">
+    <header>
+      <h1>Ram Chandra Gupta</h1>
+      <p class="headline">Applied AI/ML Engineer | LLM Evaluation · RAG · Machine Learning</p>
+      <div class="contact">
+        Siddharth Nagar, Uttar Pradesh, India &nbsp;|&nbsp; +91 89281 50149 &nbsp;|&nbsp;
+        <a href="mailto:ramcgupta.ml@gmail.com">ramcgupta.ml@gmail.com</a><br />
+        <a href="https://mrchandra.in/">mrchandra.in</a> |
+        <a href="https://www.linkedin.com/in/chandra142/">linkedin.com/in/chandra142</a> |
+        <a href="https://github.com/Chandra142">github.com/Chandra142</a> |
+        <a href="https://leetcode.com/u/Chandra142/">leetcode.com/u/Chandra142</a> |
+        <a href="https://www.kaggle.com/ramchandra142/">kaggle.com/ramchandra142</a>
+      </div>
+    </header>
+
+    <section>
+      <h2>Professional Summary</h2>
+      <p class="summary">Computer Science undergraduate (B.Tech, 2023–2027) with experience evaluating LLM behavior and building applied AI systems. Built a Nepali RAG application over <strong>10,000+ documents</strong>, a computer vision pipeline with <strong>91% precision and 88% recall</strong>, and Spring Boot backend services. Seeking applied AI/ML, LLM evaluation, and ML software engineering opportunities.</p>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+      <article class="entry">
+        <div class="entry-header"><h3>AI Systems Evaluation Intern — AirDawg Labs</h3><span class="period">Aug 2026</span></div>
+        <ul>
+          <li>Evaluated LLM outputs using structured testing, prompt engineering, and benchmark scenarios for reasoning, instruction following, coding ability, consistency, and factual accuracy.</li>
+          <li>Documented evaluation findings, validated AI-generated training data using standardized review workflows, and collaborated with AI operations on production-scale AI data pipelines.</li>
+        </ul>
+      </article>
+      <article class="entry">
+        <div class="entry-header"><h3>ML and Computer Vision Intern — SkillCraft Technology</h3><span class="period">Jul 2025</span></div>
+        <ul>
+          <li>Built Linear Regression (<strong>R² = 0.87</strong>), K-Means clustering, and SVM image classification workflows, achieving <strong>92% classification accuracy</strong> and <strong>95% hand-gesture recognition accuracy</strong>.</li>
+          <li>Developed end-to-end pipelines for preprocessing, training, evaluation, visualization, and error analysis using Python, Scikit-learn, OpenCV, Pandas, NumPy, and Matplotlib.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section>
+      <h2>Selected Projects</h2>
+      <div class="project-list">
+        <article class="entry">
+          <div class="entry-header"><h3>NepaGen — Nepali RAG System | <a href="https://github.com/Chandra142/NepaGen-AI">GitHub</a></h3><span class="period">May 2026</span></div>
+          <ul>
+            <li>Developed a Nepali RAG application using LangChain, FAISS, Groq Llama-3.1, and Hugging Face Transformers over <strong>10,000+ Nepali documents</strong>.</li>
+            <li>Implemented MMR retrieval over <strong>11,000+ semantic chunks</strong> for contextually relevant answers, with a React/REST interface supporting persistent chat and real-time Nepali QA.</li>
+          </ul>
+          <p class="stack"><strong>Stack:</strong> Python, LangChain, FAISS, Hugging Face Transformers, Groq, React, REST APIs</p>
+        </article>
+        <article class="entry">
+          <div class="entry-header"><h3>Oil Spill Detection | <a href="https://github.com/Chandra142/Oil-Spill-Detection">GitHub</a> | <a href="https://oil-spill-detection-nine.vercel.app/">Live Demo</a></h3><span class="period">Feb 2026</span></div>
+          <ul>
+            <li>Built a maritime anomaly-detection pipeline using satellite imagery and AIS data, with SVM and Random Forest models achieving <strong>91% precision and 88% recall</strong>.</li>
+            <li>Developed preprocessing, feature extraction, training, and classification-metric evaluation workflows.</li>
+          </ul>
+          <p class="stack"><strong>Stack:</strong> Python, Scikit-learn, NumPy, Pandas, OpenCV, Google Earth Engine</p>
+        </article>
+        <article class="entry">
+          <div class="entry-header"><h3>Autonomous Customer Support Agent | <a href="https://github.com/Chandra142/hackathon2026-Ram-Chandra-Gupta">GitHub</a></h3><span class="period">Jun 2025</span></div>
+          <ul>
+            <li>Developed a Python ReAct-style support agent using multi-step reasoning and tool execution; resolved <strong>14 of 20 benchmark tickets autonomously (70%)</strong> and safely escalated 6.</li>
+            <li>Implemented order lookup, knowledge-base retrieval, retry mechanisms, concurrent processing, and immutable audit logging.</li>
+          </ul>
+          <p class="stack"><strong>Stack:</strong> Python, ReAct Architecture, Tool Calling, Rule-Based Classification, JSON, Concurrent Processing</p>
+        </article>
+        <article class="entry">
+          <div class="entry-header"><h3>Ride Booking Microservices | <a href="https://github.com/Chandra142/ride-booking">GitHub</a></h3><span class="period">Jul 2026</span></div>
+          <ul>
+            <li>Built Auth, User, Driver, Ride, Payment, and Notification services with REST APIs, JWT/RBAC, API Gateway routing, and Eureka service discovery.</li>
+            <li>Built ride lifecycle and driver-matching workflows using Redis Geospatial, with PostgreSQL, Flyway migrations, validation, exception handling, and backend testing.</li>
+          </ul>
+          <p class="stack"><strong>Stack:</strong> Java, Spring Boot, Spring Cloud, PostgreSQL, Redis, JWT, Eureka, REST APIs</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-group"><strong>AI &amp; Machine Learning</strong>Python, LangChain, RAG, FAISS, Hugging Face Transformers, Scikit-learn, OpenCV, LLM Evaluation, Prompt Engineering, ReAct Agents</div>
+        <div class="skill-group"><strong>Backend &amp; Applications</strong>Java, Spring Boot, REST APIs, Microservices, Spring Data JPA, Hibernate, Maven, JDBC, React</div>
+        <div class="skill-group"><strong>Cloud, Data &amp; DevOps</strong>AWS, Docker, GitHub Actions, PostgreSQL, MySQL, Git, GitHub, Linux, Postman</div>
+        <div class="skill-group"><strong>Languages &amp; CS Foundations</strong>Python, Java, C++, C; Data Structures &amp; Algorithms, DBMS, Operating Systems, Computer Networks, OOP</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <div class="education-grid">
+        <article class="entry">
+          <div class="entry-header"><h3>B.Tech, Computer Science and Engineering</h3><span class="period">2023–2027</span></div>
+          <p class="subtitle">Lovely Professional University — Phagwara, Punjab</p>
+        </article>
+        <article class="entry">
+          <div class="entry-header"><h3>Intermediate</h3><span class="period">2021–2022</span></div>
+          <p class="subtitle">Siddharth Public School — Siddharth Nagar, Uttar Pradesh</p>
+        </article>
+        <article class="entry">
+          <div class="entry-header"><h3>High School</h3></div>
+          <p class="subtitle">St. Thomas English School</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Certifications &amp; Additional Achievements</h2>
+      <ul class="compact-list">
+        <li>Machine Learning Specialization — Coursera / Stanford Online / DeepLearning.AI (May 2026)</li>
+        <li>Oracle AI Foundation &amp; DBMS · NPTEL Cloud Computing · LPU DSA Summer Bootcamp (2025)</li>
+        <li>Model Expo ML Hackathon — LPU (Jan 2026) · Agentic AI Hackathon Certificate — KSOLVES (Oct 2025)</li>
+        <li><strong>1600+ CodeChef</strong> and <strong>1400+ Codeforces</strong> ratings</li>
+        <li>Multiple merged pull requests across external open-source projects</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

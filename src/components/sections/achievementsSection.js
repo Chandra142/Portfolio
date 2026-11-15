@@ -10,6 +10,7 @@
               <div class="achievement-period">${item.period}</div>
               <div class="achievement-body">
                 <h3>${item.title}</h3>
+                ${item.href ? `<a class="achievement-link" href="${item.href}" target="_blank" rel="noopener noreferrer">${item.linkLabel || "View evidence"}</a>` : ""}
                 <div class="achievement-org">${item.organization}</div>
                 <ul>
                   ${item.bullets.map(bullet => `<li>${bullet}</li>`).join("")}

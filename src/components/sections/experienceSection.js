@@ -12,6 +12,8 @@ export function renderExperienceSection(experience) {
                   <div class="exp-badge"><span class="blink"></span>${role.period}</div>
                   <div class="exp-role">${role.role}</div>
                   <div class="exp-company">${role.company}</div>
+                  ${role.href ? `<a class="pl experience-link" href="${role.href}" target="_blank" rel="noopener noreferrer">View internship work</a>` : ""}
+                  ${role.proofHref ? `<a class="pl experience-link" href="${role.proofHref}" target="_blank" rel="noopener noreferrer">View certificate</a>` : ""}
                 </div>
                 <div class="exp-right">
                   <ul>

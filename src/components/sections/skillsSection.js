@@ -1,29 +1,24 @@
-﻿function renderTags(items, className) {
-  return items.map(item => `<span class="${className}">${item}</span>`).join("");
-}
-
-export function renderSkillsSection(skills) {
+﻿export function renderSkillsSection(skills) {
   const marqueeItems = [...skills.marquee, ...skills.marquee];
 
   return `
     <section id="skills">
       <div class="mw">
-        <div class="s-label">Inventory</div>
-        <h2 class="s-title fade-up">The Tech Stack</h2>
-        <div class="ticker-wrap fade-up" aria-label="Tech stack marquee">
-          <div class="ticker ticker-track">
+        <div class="s-label">Technical Toolkit</div>
+        <h2 class="s-title fade-up">Built for Applied AI</h2>
+        <div class="ticker-wrap fade-up">
+          <div class="ticker ticker-track" aria-hidden="true">
             ${marqueeItems.map(item => `<span class="ti"><span class="d"></span>${item}</span>`).join("")}
           </div>
+          <span class="sr-only">${skills.marquee.join(", ")}</span>
         </div>
         <div class="skills-compact fade-up">
-          <div class="skills-compact-group">
-            <h3>Tech Stack</h3>
-            <div class="tags">${renderTags(skills.techStack, "tag")}</div>
-          </div>
-          <div class="skills-compact-group">
-            <h3>Focus Areas</h3>
-            <div class="tags">${renderTags(skills.focusAreas, "tag")}</div>
-          </div>
+          ${skills.groups.map(group => `
+            <div class="skills-compact-group">
+              <h3>${group.title}</h3>
+              <div class="tags">${group.items.map(item => `<span class="tag">${item}</span>`).join("")}</div>
+            </div>
+          `).join("")}
         </div>
       </div>
     </section>

@@ -12,6 +12,7 @@ export function renderCertificationsSection(certifications) {
                   <div class="certification-period">${item.period}</div>
                   <h3>${item.title}</h3>
                   <p>${item.issuer}</p>
+                  ${item.href ? `<a class="pl certification-link" href="${item.href}" target="_blank" rel="noopener noreferrer" aria-label="View ${item.title} certificate">View certificate</a>` : ""}
                 </article>
               `
             )
